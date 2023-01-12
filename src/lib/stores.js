@@ -7,7 +7,9 @@ import { browser } from '$app/environment';
 // This will store the data both local storage and svelte store
 // This line means we are geting the item name userName from localStorage but if the item is not there the system will pick sabbir, in this case
 //string
-export const userName = writable(
-	(browser && localStorage.getItem('userName')) || 'No Data Available'
+
+console.log(browser);
+export const userNames = writable(
+	(browser && localStorage.getItem('userName')) || ['trina', 'safiya', 'somapti']
 );
-userName.subscribe((val) => browser && (localStorage.userName = val));
+userNames.subscribe((val) => browser && (localStorage.userNames = val));
