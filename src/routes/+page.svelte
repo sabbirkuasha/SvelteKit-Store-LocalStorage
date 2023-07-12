@@ -16,6 +16,11 @@
 		const fetchedData = await productFetch();
 		products.set(fetchedData.products);
 	});
+
+	const isDrawerOpen = writable(false);
+	function openDrawer() {
+		isDrawerOpen.set(true);
+	}
 </script>
 
 <main class="p-5">
@@ -37,10 +42,27 @@
 					</div>
 					<p>{product.description}</p>
 					<div class="card-actions justify-end">
-						<button class="btn btn-primary">Add to cart</button>
+						<button on:click={openDrawer} class="btn btn-primary">Add to cart</button>
 					</div>
 				</div>
 			</div>
 		{/each}
+	</div>
+
+	<div class="drawer drawer-end">
+		<input
+			id="my-drawer-4"
+			type="checkbox"
+			class="drawer-toggle"
+			hidden
+			bind:checked={$isDrawerOpen}
+		/>
+		<div class="drawer-side">
+			<label for="my-drawer-4" class="drawer-overlay" />
+			<ul class="menu p-4 w-80 h-full bg-base-200 text-base-content">
+				<!-- Sidebar content here -->
+				Cart
+			</ul>
+		</div>
 	</div>
 </main>
