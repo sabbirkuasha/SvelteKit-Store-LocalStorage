@@ -12,4 +12,4 @@ console.log(browser);
 export const userNames = writable(
 	(browser && localStorage.getItem('userName')) || ['trina', 'safiya', 'somapti']
 );
-userNames.subscribe((val) => browser && (localStorage.userNames = val));
+// userNames.subscribe((val) => browser && (localStorage.userNames = val));
