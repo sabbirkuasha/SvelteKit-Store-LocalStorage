@@ -5,14 +5,35 @@
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 	import { writable } from 'svelte/store';
+	import { browser } from '$app/environment';
 
 	//API CALL Function
-	import { productFetch, products } from '../lib/API/callAPI';
 
-	$: console.log($products);
+	import { productFetch, products } from '../../../lib/API/callAPI';
+
+	$: $page?.params?.subCat ? productFetch(1, $page?.params?.subCat, '') : '';
+
+	$: console.log($page);
+
+	let scrollTo = $page?.url?.searchParams?.get('scroll');
+
+	function scrollToElement() {
+		console.log('called');
+		if (browser && scrollTo) {
+			console.log(scrollTo);
+			let element = document.getElementById(scrollTo);
+			console.log(element);
+			if (element) {
+				element.scrollIntoView({ behavior: 'smooth' });
+			}
+		}
+	}
+
+	// $: console.log($products.data.length);
 
 	onMount(async () => {
-		await productFetch(1, 'saree', '');
+		// await productFetch(1, $page.params.subCat, '');
+		scrollToElement();
 	});
 
 	const isDrawerOpen = writable(false);
@@ -23,10 +44,9 @@
 
 <main class="p-5">
 	<div class="grid grid-cols-4 gap-5 gap-y-10">
-		So quite
-		<!-- {#if $products.length != ''}
+		{#if $products.length != ''}
 			{#each $products.data as product, i}
-				<div class="card bg-base-200 shadow-xl">
+				<div class="card bg-base-200 shadow-xl" id={product.code}>
 					<figure><img class="w-36" src={product.featured1_image.main_url} alt="Shoes" /></figure>
 					<div class="card-body">
 						<h2 class="card-title">{product.name}</h2>
@@ -47,8 +67,13 @@
 						</div>
 					</div>
 				</div>
+
+				{#if $products.data.length == i + 1}
+					{console.log(i)}
+					{scrollToElement()}
+				{/if}
 			{/each}
-		{/if} -->
+		{/if}
 	</div>
 
 	<div class="drawer drawer-end">
