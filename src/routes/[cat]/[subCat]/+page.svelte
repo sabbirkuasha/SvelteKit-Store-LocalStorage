@@ -6,6 +6,7 @@
 	import { goto } from '$app/navigation';
 	import { writable } from 'svelte/store';
 	import { browser } from '$app/environment';
+	import { fade, fly } from 'svelte/transition';
 
 	//API CALL Function
 
@@ -43,36 +44,38 @@
 </script>
 
 <main class="p-5">
-	<div class="grid grid-cols-4 gap-5 gap-y-10">
+	<div class="w-full">
 		{#if $products.length != ''}
-			{#each $products.data as product, i}
-				<div class="card bg-base-200 shadow-xl" id={product.code}>
-					<figure><img class="w-36" src={product.featured1_image.main_url} alt="Shoes" /></figure>
-					<div class="card-body">
-						<h2 class="card-title">{product.name}</h2>
-						<div class="flex flex-row gap-x-1">
-							<h2 class="card-title font-bold">{product.price}</h2>
-						</div>
-
-						{#if product.discount != null}
+			<div class="grid grid-cols-4 gap-5 gap-y-10" transition:fly={{ y: 200, duration: 2000 }}>
+				{#each $products.data as product, i}
+					<div class="card bg-base-200 shadow-xl" id={product.code}>
+						<figure><img class="w-36" src={product.featured1_image.main_url} alt="Shoes" /></figure>
+						<div class="card-body">
+							<h2 class="card-title">{product.name}</h2>
 							<div class="flex flex-row gap-x-1">
-								<h2 class="card-title font-bold text-white mr-2">Discount</h2>
-								<h2 class="card-title font-bold">{product.discountPercentage}</h2>
-								<h2 class="card-title font-bold">%</h2>
+								<h2 class="card-title font-bold">{product.price}</h2>
 							</div>
-						{/if}
 
-						<div class="card-actions justify-end">
-							<button on:click={openDrawer} class="btn btn-primary">Add to cart</button>
+							{#if product.discount != null}
+								<div class="flex flex-row gap-x-1">
+									<h2 class="card-title font-bold text-white mr-2">Discount</h2>
+									<h2 class="card-title font-bold">{product.discountPercentage}</h2>
+									<h2 class="card-title font-bold">%</h2>
+								</div>
+							{/if}
+
+							<div class="card-actions justify-end">
+								<button on:click={openDrawer} class="btn btn-primary">Add to cart</button>
+							</div>
 						</div>
 					</div>
-				</div>
 
-				{#if $products.data.length == i + 1}
-					{console.log(i)}
-					{scrollToElement()}
-				{/if}
-			{/each}
+					{#if $products.data.length == i + 1}
+						{console.log(i)}
+						{scrollToElement()}
+					{/if}
+				{/each}
+			</div>
 		{/if}
 	</div>
 
