@@ -19,28 +19,41 @@
 
 	function scrollToElement() {
 		console.log('called');
-		if (browser && scrollTo) {
-			console.log(scrollTo);
+
+		setTimeout(() => {
 			let element = document.getElementById(scrollTo);
-			console.log(element);
 			if (element) {
 				element.scrollIntoView({ behavior: 'smooth' });
 			}
-		}
-	}
+		}, 100);
 
-	// $: console.log($products.data.length);
+		// if (browser && scrollTo) {
+		// 	console.log(scrollTo);
+
+		// 	let element = document.getElementById('109312');
+		// 	console.log(document.getElementById('109312'));
+		// 	if (element) {
+		// 		element.scrollIntoView({ behavior: 'smooth' });
+		// 	}
+		// }
+	}
 
 	onMount(async () => {
 		// await productFetch(1, $page.params.subCat, '');
-		scrollToElement();
+		// scrollToElement();
 	});
 
 	const isDrawerOpen = writable(false);
 	function openDrawer() {
 		isDrawerOpen.set(true);
 	}
+
+	function exp() {
+		console.log(document.getElementById('109312'));
+	}
 </script>
+
+<button on:click={scrollToElement} class="btn btn-primary">Test</button>
 
 <main class="p-5">
 	<div class="grid grid-cols-4 gap-5 gap-y-10">
@@ -50,6 +63,7 @@
 					<figure><img class="w-36" src={product.featured1_image.main_url} alt="Shoes" /></figure>
 					<div class="card-body">
 						<h2 class="card-title">{product.name}</h2>
+						<h2 class="card-title">ProductID-{product.code}</h2>
 						<div class="flex flex-row gap-x-1">
 							<h2 class="card-title font-bold">{product.price}</h2>
 						</div>
