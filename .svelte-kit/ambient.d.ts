@@ -1,26 +1,24 @@
-
 // this file is generated — do not edit it
-
 
 /// <reference types="@sveltejs/kit" />
 
 /**
  * Environment variables [loaded by Vite](https://vitejs.dev/guide/env-and-mode.html#env-files) from `.env` files and `process.env`. Like [`$env/dynamic/private`](https://kit.svelte.dev/docs/modules#$env-dynamic-private), this module cannot be imported into client-side code. This module only includes variables that _do not_ begin with [`config.kit.env.publicPrefix`](https://kit.svelte.dev/docs/configuration#env) _and do_ start with [`config.kit.env.privatePrefix`](https://kit.svelte.dev/docs/configuration#env) (if configured).
- * 
+ *
  * _Unlike_ [`$env/dynamic/private`](https://kit.svelte.dev/docs/modules#$env-dynamic-private), the values exported from this module are statically injected into your bundle at build time, enabling optimisations like dead code elimination.
- * 
+ *
  * ```ts
  * import { API_KEY } from '$env/static/private';
  * ```
- * 
+ *
  * Note that all environment variables referenced in your code should be declared (for example in an `.env` file), even if they don't have a value until the app is deployed:
- * 
+ *
  * ```
  * MY_FEATURE_FLAG=""
  * ```
- * 
+ *
  * You can override `.env` values from the command line like so:
- * 
+ *
  * ```bash
  * MY_FEATURE_FLAG="enabled" npm run dev
  * ```
@@ -42,10 +40,11 @@ declare module '$env/static/private' {
 	export const DokanLibrary1: string;
 	export const DriverData: string;
 	export const EDITOR: string;
-	export const EFC_8620: string;
+	export const EFC_9924: string;
+	export const flutter: string;
 	export const FPS_BROWSER_APP_PROFILE_STRING: string;
 	export const FPS_BROWSER_USER_PROFILE_STRING: string;
-	export const GIT_ASKPASS: string;
+	export const GRADLE_HOME: string;
 	export const HDRLS_HOME_V5: string;
 	export const HOME: string;
 	export const HOMEDRIVE: string;
@@ -88,6 +87,7 @@ declare module '$env/static/private' {
 	export const OculusBase: string;
 	export const OMP_NUM_THREADS: string;
 	export const OneDrive: string;
+	export const OneDriveConsumer: string;
 	export const ORIGINAL_XDG_CURRENT_DESKTOP: string;
 	export const OS: string;
 	export const Path: string;
@@ -103,6 +103,8 @@ declare module '$env/static/private' {
 	export const PROMPT: string;
 	export const PSModulePath: string;
 	export const PUBLIC: string;
+	export const QT_SCALE_FACTOR_ROUNDING_POLICY: string;
+	export const RG_GPU_FRAMEWORK_ENGINE_RESOURCEDIR: string;
 	export const SESSIONNAME: string;
 	export const SystemDrive: string;
 	export const SystemRoot: string;
@@ -115,44 +117,33 @@ declare module '$env/static/private' {
 	export const USERNAME: string;
 	export const USERPROFILE: string;
 	export const VBOX_MSI_INSTALL_PATH: string;
-	export const VRAY5_FOR_3DSMAX2022_MAIN: string;
-	export const VRAY5_FOR_3DSMAX2022_PLUGINS: string;
-	export const VRAY_MDL_PATH_3DSMAX2022: string;
-	export const VRAY_OSL_PATH_3DSMAX2022: string;
+	export const VRAY_MTLIB_DOWNLOAD_DIR: string;
 	export const VRAY_SEND_FEEDBACK: string;
-	export const VSCODE_GIT_ASKPASS_EXTRA_ARGS: string;
-	export const VSCODE_GIT_ASKPASS_MAIN: string;
-	export const VSCODE_GIT_ASKPASS_NODE: string;
-	export const VSCODE_GIT_IPC_HANDLE: string;
-	export const VSCODE_INJECTION: string;
-	export const VSCODE_NONCE: string;
 	export const windir: string;
 	export const _VOLTA_TOOL_RECURSION: string;
 }
 
 /**
  * Similar to [`$env/static/private`](https://kit.svelte.dev/docs/modules#$env-static-private), except that it only includes environment variables that begin with [`config.kit.env.publicPrefix`](https://kit.svelte.dev/docs/configuration#env) (which defaults to `PUBLIC_`), and can therefore safely be exposed to client-side code.
- * 
+ *
  * Values are replaced statically at build time.
- * 
+ *
  * ```ts
  * import { PUBLIC_BASE_URL } from '$env/static/public';
  * ```
  */
-declare module '$env/static/public' {
-	
-}
+declare module '$env/static/public' {}
 
 /**
  * This module provides access to runtime environment variables, as defined by the platform you're running on. For example if you're using [`adapter-node`](https://github.com/sveltejs/kit/tree/master/packages/adapter-node) (or running [`vite preview`](https://kit.svelte.dev/docs/cli)), this is equivalent to `process.env`. This module only includes variables that _do not_ begin with [`config.kit.env.publicPrefix`](https://kit.svelte.dev/docs/configuration#env) _and do_ start with [`config.kit.env.privatePrefix`](https://kit.svelte.dev/docs/configuration#env) (if configured).
- * 
+ *
  * This module cannot be imported into client-side code.
- * 
+ *
  * ```ts
  * import { env } from '$env/dynamic/private';
  * console.log(env.DEPLOYMENT_SPECIFIC_VARIABLE);
  * ```
- * 
+ *
  * > In `dev`, `$env/dynamic` always includes environment variables from `.env`. In `prod`, this behavior will depend on your adapter.
  */
 declare module '$env/dynamic/private' {
@@ -173,10 +164,11 @@ declare module '$env/dynamic/private' {
 		DokanLibrary1: string;
 		DriverData: string;
 		EDITOR: string;
-		EFC_8620: string;
+		EFC_9924: string;
+		flutter: string;
 		FPS_BROWSER_APP_PROFILE_STRING: string;
 		FPS_BROWSER_USER_PROFILE_STRING: string;
-		GIT_ASKPASS: string;
+		GRADLE_HOME: string;
 		HDRLS_HOME_V5: string;
 		HOME: string;
 		HOMEDRIVE: string;
@@ -219,6 +211,7 @@ declare module '$env/dynamic/private' {
 		OculusBase: string;
 		OMP_NUM_THREADS: string;
 		OneDrive: string;
+		OneDriveConsumer: string;
 		ORIGINAL_XDG_CURRENT_DESKTOP: string;
 		OS: string;
 		Path: string;
@@ -234,6 +227,8 @@ declare module '$env/dynamic/private' {
 		PROMPT: string;
 		PSModulePath: string;
 		PUBLIC: string;
+		QT_SCALE_FACTOR_ROUNDING_POLICY: string;
+		RG_GPU_FRAMEWORK_ENGINE_RESOURCEDIR: string;
 		SESSIONNAME: string;
 		SystemDrive: string;
 		SystemRoot: string;
@@ -246,29 +241,20 @@ declare module '$env/dynamic/private' {
 		USERNAME: string;
 		USERPROFILE: string;
 		VBOX_MSI_INSTALL_PATH: string;
-		VRAY5_FOR_3DSMAX2022_MAIN: string;
-		VRAY5_FOR_3DSMAX2022_PLUGINS: string;
-		VRAY_MDL_PATH_3DSMAX2022: string;
-		VRAY_OSL_PATH_3DSMAX2022: string;
+		VRAY_MTLIB_DOWNLOAD_DIR: string;
 		VRAY_SEND_FEEDBACK: string;
-		VSCODE_GIT_ASKPASS_EXTRA_ARGS: string;
-		VSCODE_GIT_ASKPASS_MAIN: string;
-		VSCODE_GIT_ASKPASS_NODE: string;
-		VSCODE_GIT_IPC_HANDLE: string;
-		VSCODE_INJECTION: string;
-		VSCODE_NONCE: string;
 		windir: string;
 		_VOLTA_TOOL_RECURSION: string;
 		[key: `PUBLIC_${string}`]: undefined;
 		[key: `${string}`]: string | undefined;
-	}
+	};
 }
 
 /**
  * Similar to [`$env/dynamic/private`](https://kit.svelte.dev/docs/modules#$env-dynamic-private), but only includes variables that begin with [`config.kit.env.publicPrefix`](https://kit.svelte.dev/docs/configuration#env) (which defaults to `PUBLIC_`), and can therefore safely be exposed to client-side code.
- * 
+ *
  * Note that public dynamic environment variables must all be sent from the server to the client, causing larger network requests — when possible, use `$env/static/public` instead.
- * 
+ *
  * ```ts
  * import { env } from '$env/dynamic/public';
  * console.log(env.PUBLIC_DEPLOYMENT_SPECIFIC_VARIABLE);
@@ -277,5 +263,5 @@ declare module '$env/dynamic/private' {
 declare module '$env/dynamic/public' {
 	export const env: {
 		[key: `PUBLIC_${string}`]: string | undefined;
-	}
+	};
 }
